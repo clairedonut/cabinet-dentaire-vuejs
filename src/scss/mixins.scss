@@ -1,0 +1,56 @@
+/* ------ custom mixins ------------ */
+
+@mixin flex-row($horizontal,$vertical) {
+  display: flex;
+  flex-direction: row;
+  justify-content: $horizontal;
+  align-items: $vertical;
+}
+
+@mixin flex-column($horizontal,$vertical) {
+  display: flex;
+  flex-direction: column;
+  align-items: $horizontal;
+  justify-content: $vertical;
+}
+
+@mixin bullet-style {  /* li styles : remove bullet-points */
+  list-style-type: none;
+  padding: 0 10px;
+}
+
+@mixin hyperlink($color, $hover-color) { /* a href styles formatting */
+  text-decoration: none;
+  color: $color;
+  &:hover{
+    color: $hover-color;
+    text-decoration: none;
+  }
+}
+
+@mixin width($columns) { /* format card grid size */
+  width: calc(100% / $columns);
+}
+
+@mixin background($url, $size, $repeat, $position) { /* background images */
+  background-image: url($url);
+  background-size: $size; // contain or cover
+  background-repeat: $repeat; // no-repeat
+  background-position: $position; // center or e.g. center top
+}
+
+
+@mixin parallax ($url, $height) {
+
+  /* Url src to image used */
+  background-image: url($url);
+
+  /* Set a specific height */
+  height: $height;
+
+  /* To create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

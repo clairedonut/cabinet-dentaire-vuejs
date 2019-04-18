@@ -1,0 +1,64 @@
+/* ------ fonts ------------ */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900');
+
+
+/* ------ custom variables ------------ */
+
+$brand-font: 'Montserrat', sans-serif;
+$text-color: #2c3e50;
+
+
+/* ------ custom media queries ------------ */
+
+$min-break-small: "only screen and (min-width : 576px)";
+$min-break-medium: "only screen and (min-width : 577px)";
+$min-break-large: "only screen and (min-width : 900px)";
+$min-break-xlarge: "only screen and (min-width : 1200px)";
+
+$max-break-small: "only screen and (max-width : 577px)";
+$max-break-medium: "only screen and (max-width : 899px)";
+
+/* ------ style properties ------------------------------------------------ */
+
+// /* ------- applicable to whole body  --------------------- */
+
+
+* {
+  // border: 1px dotted blue;
+  // background-color: red;
+}
+
+a {
+  @include hyperlink(black , blue);
+}
+
+section {
+  padding-bottom: 5em;
+}
+
+.container-fluid {
+  margin: 0;
+}
+
+/* ------- fonts  ------------------------------------------ */
+
+.brand {
+}
+
+figure {
+  padding: 0;
+}
+
+h2 {
+  font-family: $brand-font;
+
+  margin: 2em auto 1em;
+  font-size: 2.5em;
+  font-weight: 700;
+
+  @media #{$min-break-medium} {
+    font-size: 5em;
+    // margin: 1em auto 0.5em;
+  }
+}

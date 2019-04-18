@@ -1,12 +1,12 @@
 module.exports = {
-  publicPath: '/dentist-vuejs/',
+  // publicPath: '/dentist-vuejs/',
 
   css: {
     loaderOptions: {
       sass: {
         data: `
-        @import "@/scss/variables.scss";
         @import "@/scss/mixins.scss";
+        @import "@/scss/variables.scss";
         `
       }
     }
@@ -17,7 +17,10 @@ module.exports = {
       registry: undefined,
       renderRoutes: [
         '/',
-        '/about'
+        '/presta',
+        '/urgences',
+        '/equipe',
+        '/contact',
       ],
       useRenderEvent: false,
       headless: false,
