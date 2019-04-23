@@ -1,25 +1,19 @@
 <template lang="html">
 
+	<!-- ..................... component Home.vue ..................... -->
 
 		<section id="about" class="row">
 
 			<div class="col-12">
-
 				<h2> {{ title }} </h2>
-
 				<p v-for="item in items"> {{ item }} </p>
 			</div>
 
 		</section>
 
-
 </template>
 
 <script>
-// @ is an alias to /src
-// import Banner from '@/components/Banner.vue'
-
-
 export default {
   data () {
 		return {
@@ -31,39 +25,29 @@ export default {
         'Pour prendre rendez-vous, veuillez nous envoyer un message ou nous appeler directement au 03 85 75 66 66.'
       ]
 		}
-	},
-	components: {
-		// Banner
 	}
-
 }
 </script>
 
 <style lang="scss">
 
 	#about {
-
     @include flex-column(center, center);
 		@include background('https://images.unsplash.com/photo-1473232117216-c950d4ef2e14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1313&q=80' ,cover, no-repeat, center);
 
     color: white;
     text-align: center;
-
 		padding-bottom: 0;
 
     div {
     	padding: 5em 0;
-
 			height: 100%;
 			width:100%;
-
 			background: rgba(#10A5FF, 0.7);
-
     }
 
 		h2 {
 			font-family: $brand-font;
-
       margin: 2em auto 1em;
 			font-size: 3em;
       font-weight: 700;
@@ -83,7 +67,6 @@ export default {
 
 			@media #{$min-break-medium} {
 				font-size: 1.5em;
-
 				margin: 2em;
 			}
 
@@ -93,9 +76,5 @@ export default {
 				margin: 1em auto;
 			}
     }
-
 	}
-
-
-
 </style>

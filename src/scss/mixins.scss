@@ -1,18 +1,35 @@
 /* ------ custom mixins ------------ */
 
 @mixin flex-row($horizontal,$vertical) {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: $horizontal;
+  -ms-flex-pack: $horizontal;
   justify-content: $horizontal;
+  -webkit-box-align: $vertical;
+  -ms-flex-align: $vertical;
   align-items: $vertical;
 }
 
 @mixin flex-column($horizontal,$vertical) {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: $horizontal;
-  justify-content: $vertical;
-}
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: $horizontal;
+  -ms-flex-align: $horizontal;
+          align-items: $horizontal;
+  -webkit-box-pack: $vertical;
+  -ms-flex-pack: $vertical;
+          justify-content: $vertical;}
 
 @mixin bullet-style {  /* li styles : remove bullet-points */
   list-style-type: none;

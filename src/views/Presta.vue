@@ -7,10 +7,15 @@
       <div class="col-12 col-md-10 col-lg-8">
         <h2> {{ title }} </h2>
         <p> {{ description }} </p>
+
+        <!-- ..................... download PDF price rates ..................... -->
+
         <p>
           Téléchargez la liste de nos prestations <a :href="link" download>ici</a>
         </p>
       </div>
+
+      <!-- ..................... table : display service and price rates ..................... -->
 
       <div class="col-12 overflow">
         <table class="table">
@@ -27,38 +32,12 @@
               <td>{{care.secu_rate}} €</td>
               <td>{{care.mutuelle_rate}} €</td>
             </tr>
-            <td class="muuu" colspan="4"></td>
+            <td class="padding-b" colspan="4"></td>
           </tbody>
-
         </table>
       </div>
 
-
-
-
-
-
-
-      <!-- <table class="table col-12 col-md-10 col-lg-8">
-        <thead>
-          <tr>
-            <th scope="">Prestations</th>
-            <th scope="">Base de remboursement Assurance maladie</th>
-            <th scope="">Remboursement Assurance maladie (70%)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <td class="titre" colspan="3">Examens radiographiques dentaires</td>
-          <tr v-for="item in items">
-            <td>{{item.name}}</td>
-            <td>{{item.text}}</td>
-            <td>{{item.tarif}}</td>
-          </tr>
-        </tbody>
-      </table> -->
-
     </section>
-
 
   </main>
 </template>
@@ -220,13 +199,44 @@ export default {
         }
       ]
     }
+  },
+  head: {
+    // To use "this" in the component, it is necessary to return the object through a function
+    title: function () {
+      return {
+        inner: 'Les prestations du Cabinet Dentaire'
+      }
+    },
+    meta: [
+      { name: 'description', content: 'Cabinet Dentaire à Lille (59000) avec les chirurgiens-dentistes Drs Eline, Bassett et Caelan. Traitements esthétiques, implants', id: 'desc' },
+      { name: 'image', content: 'https://media.istockphoto.com/photos/woman-at-dentist-picture-id664274496?k=6&m=664274496&s=612x612&w=0&h=Gri8H1qqTguq7nkWamrlwNz2AxvqDHpIQgQy7h-jg74=' },
+
+      // Google+ / Schema.org
+      { itemprop: 'name', content: 'Chirurgien-dentistes à Lille' },
+      { itemprop: 'description', content: 'Cabinet Dentaire à Lille (59000) avec les chirurgiens-dentistes Drs Eline, Bassett et Caelan. Traitements esthétiques, implants' },
+      { itemprop: 'image', content: 'https://media.istockphoto.com/photos/woman-at-dentist-picture-id664274496?k=6&m=664274496&s=612x612&w=0&h=Gri8H1qqTguq7nkWamrlwNz2AxvqDHpIQgQy7h-jg74=' },
+
+      // Twitter
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:title', content: 'Chirurgien-dentistes à Lille depuis 2012' },
+      { name: 'twitter:card', content: 'Cabinet Dentaire à Lille (59000) avec les chirurgiens-dentistes Drs Eline, Bassett et Caelan. Traitements dentaires, implants, orthodontie' },
+
+      // Open Graph general (Facebook, Pinterest & Google+)
+      { name: 'og:title', content: 'Chirurgien-dentistes à Lille depuis 2012' },
+      { name: 'og:description', content: 'Cabinet Dentaire à Lille (59000) avec les chirurgiens-dentistes Drs Eline, Bassett et Caelan. Traitements dentaires, implants, orthodontie' },
+      { name: 'og:image', content: 'https://media.istockphoto.com/photos/woman-at-dentist-picture-id664274496?k=6&m=664274496&s=612x612&w=0&h=Gri8H1qqTguq7nkWamrlwNz2AxvqDHpIQgQy7h-jg74=' },
+      { name: 'og:url', content: 'http://cookiesandwifi.ovh/dentist-vuejs' },
+      { name: 'og:site_name', content: 'Cabinet Dentaire' },
+      { name: 'og:locale', content: 'fr_FR' },
+      { name: 'og:type', content: 'website' }
+    ]
   }
 }
 </script>
 
 <style lang="scss">
-#prestations {
 
+#prestations {
   @include flex-column(center, center);
 
   h2 {
@@ -263,10 +273,8 @@ export default {
       }
     }
 
-    .muuu {
+    .padding-b {
       padding-bottom: 1em;
-      // margin-bottom: 5em;
-
     }
 
     .titre {
@@ -280,8 +288,6 @@ export default {
       text-align: left;
       font-weight: 600;
     }
-
-
   }
 }
 

@@ -1,19 +1,24 @@
 <template lang="html">
 
+  <!-- ..................... component Home.vue ..................... -->
+
   <section id="acces" class="row">
+
+	  <!-- ..................... banner image ..................... -->
 
     <figure class="col-12">
       <img class="img-fluid" :src="img_path" alt="">
     </figure>
 
+	<!-- ..................... page title ..................... -->
+
     <h2 class="col-12"> {{ title }} </h2>
+
+	<!-- ............. info: contact, schedule, public transportation, access ............. -->
 
       <div class="col-12">
 
-
-
         <aside v-for="contact in contacts" class="col-12 col-md-6">
-
 
           <div class="title-area">
             <div class="icon">
@@ -31,24 +36,21 @@
               <i :class="description.icon"></i>
             </div>
 
-
             <p v-for="address in description.address"> {{ address }} </p>
             <p> {{ description.text }} </p>
           </div>
 
           <p v-for="info in contact.infos"> {{ info }} </p>
-
-
         </aside>
 
-
       </div>
+
+	  <!-- ..................... i-frame : Google maps ..................... -->
 
       <div class="col-12 map-iframe ">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2538.3735009097504!2d2.564212315136998!3d50.490005979480806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dd1828b0d39059%3A0xac8c2365c6154a1b!2sSalome+Suybeng!5e0!3m2!1sen!2sfr!4v1524062289496" width="100%" height="300px" frameborder="0" style="border:0" allowfullscreen></iframe>
 
       </div>
-
 
   </section>
 
@@ -58,24 +60,23 @@
 export default {
   data () {
     return {
-
       title: 'Accès',
-      img_path: '../img/contact1.jpg',
+      img_path: 'img/contact1.jpg',
       contacts: [
         {
           title:'Nous Contacter',
           icon: '',
           descriptions: [
             {
-              address: ['137 rue Jean Jaures ','- 62700 Bruay-La-Buissière'],
+              text: this.$address,
               icon:'fas fa-map-marker'
             },
             {
-              text: '03 4567 4321',
+              text: this.$phone,
               icon: 'fas fa-phone'
             },
             {
-              text: 'cabinetdentaire@email.com',
+              text: this.$email,
               icon: 'fas fa-envelope'
             }
           ]
@@ -113,6 +114,7 @@ export default {
 #acces {
 
   @include flex-row(center, center);
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   font-family: $brand-font;
   line-height: 2em;
@@ -126,6 +128,7 @@ export default {
   div {
     @include flex-row(center, center);
     flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
 
     aside {
       @include flex-column(flex-start, center);

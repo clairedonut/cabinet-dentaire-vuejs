@@ -1,5 +1,5 @@
 module.exports = {
-  // publicPath: '/dentist-vuejs/',
+  publicPath: '/dentist-vuejs/',
 
   css: {
     loaderOptions: {

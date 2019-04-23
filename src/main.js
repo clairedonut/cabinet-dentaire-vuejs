@@ -20,8 +20,18 @@ library.add(
 
 // library.add(fas)
 
-
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+
+// Global variables
+
+Vue.prototype.$branding = 'Cabinet Dentaire'
+Vue.prototype.$address = '3, rue de la rue - 59000 Lille'
+Vue.prototype.$phone = '03 23 32 21 22'
+Vue.prototype.$email = 'hello@dentist.com'
+
+
+
 
 
 

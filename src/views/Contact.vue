@@ -2,46 +2,57 @@
 
 	<section id="contact" class="row">
 
+
 		<div class="form-container col-12 col-lg-10">
+
+			<!-- ..................... introduction text ..................... -->
 
 			<div class="">
 				<h2> {{ title }} </h2>
 				<p> {{ text }} </p>
 			</div>
 
-		<form method="post" action="contactengine.php" class="floating-form">
+			<!-- ..................... contact form ..................... -->
 
-			<div class="floating-label">
-				<input class="floating-input" type="text" name="Name" placeholder=" ">
-				<span class="highlight"></span>
-				<label>Votre nom</label>
-			</div>
+			<form method="post" action="contactengine.php" class="floating-form" id="contact-form">
 
-			<div class="floating-label">
-				<input class="floating-input" type="text" name="Email" placeholder=" ">
-				<span class="highlight"></span>
-				<label>Votre Email</label>
-			</div>
+				<div class="floating-label">
+					<input class="floating-input" type="text" name="Name" placeholder=" " required>
+					<span class="highlight"></span>
+					<label>Votre nom</label>
+				</div>
 
-			<div class="floating-label">
-				<textarea class="floating-input floating-textarea" name="Message" placeholder=" "></textarea>
-				<span class="highlight"></span>
-				<label>Votre message ...</label>
-			</div>
+				<div class="floating-label">
+					<input class="floating-input" type="text" name="Email" placeholder=" " required>
+					<span class="highlight"></span>
+					<label>Votre Email</label>
+				</div>
 
-			<input type="submit" name="submit" value="Submit" class="submit-button btn btn-primary" />
-
-		</form>
-
-	</div>
-</section>
+				<div class="floating-label">
+					<textarea class="floating-input floating-textarea" name="Message" placeholder=" " required></textarea>
+					<span class="highlight"></span>
+					<label>Votre message ...</label>
+				</div>
 
 
+				<input data-callback='onSubmit' type="submit" name="submit" value="Submit" class="submit-button btn btn-primary" />
+
+			</form>
+
+		</div>
+
+		<!-- <script src="https://www.google.com/recaptcha/api.js?render=6LdcBZ4UAAAAAM41wKroJS2AJsNLCKVOWKwIoP-h"></script> -->
+
+	</section>
 
 
 </template>
 
 <script>
+
+// grecaptcha.ready(function() {
+// 		grecaptcha.execute('6LdcBZ4UAAAAAM41wKroJS2AJsNLCKVOWKwIoP-h', {action: 'homepage'});
+// });
 
 export default {
 	data () {
@@ -49,21 +60,26 @@ export default {
 			title: 'Contactez nous',
 			text: 'Ipsum fugiat in do eiusmod minim culpa elit Lorem sint enim sint amet commodo.'
 		}
+	},
+	head: {
+		// To use "this" in the component, it is necessary to return the object through a function
+		title: function () {
+			return {
+				inner: 'Contactez le Cabinet Dentaire de Lille'
+			}
+		},
+		meta: [
+			{ name: 'description', content: 'Cabinet Dentaire à Lille (59000) avec les chirurgiens-dentistes Drs Eline, Bassett et Caelan. Traitements esthétiques, implants', id: 'desc' }
+		]
 	}
 }
 </script>
 
 <style lang="scss">
 
-*{
-	// border: 0.5px solid blue;
-}
-
 #contact {
 
 	@include background('https://images.pexels.com/photos/287237/pexels-photo-287237.jpeg', cover, no-repeat, left );
-
-
 	margin: 0;
 	@include flex-column(center, center);
 
@@ -83,14 +99,10 @@ export default {
 	.form-container {
 		background-color: rgba(255,255,255,0.99);
 
-		@media #{$min-break-medium} {
-
-		}
 		@media #{$min-break-large} {
 			border-radius: 5px;
 			margin: 5em 0;
 		}
-
 	}
 
 	form {
@@ -100,7 +112,6 @@ export default {
 
 		input, textarea {
 			margin: 1.5em 0;
-
 		}
 
 		.floating-label {

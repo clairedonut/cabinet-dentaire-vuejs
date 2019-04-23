@@ -1,13 +1,20 @@
 <template lang="html">
 
+	<!-- ..................... Footer / component in App.vue ..................... -->
+
+
 	<footer class="container-fluid">
 
 		<section class="row footer-top">
+
+			<!-- ........ branding footer ........ -->
 
 			<div class="col-12 col-md-6 col-lg-6 footer-brand">
 				<h2> {{ brand }} </h2>
 				<p> {{ text }} </p>
 			</div>
+
+			<!-- ........ nav menu footer ........ -->
 
 			<div id="footer-menu" class="col-12 col-md-6  col-lg-6">
 				<div class="">
@@ -18,13 +25,9 @@
 					<a v-for="subcategories_link in subcategories_links" :href="subcategories_link.link"> {{ subcategories_link.name }} </a>
 				</div>
 			</div>
-
-			<!-- <a href="/">Cabinet Dentaire</a>
-			<a href="/">Notre Équipe</a>
-			<a href="/">Nos Services</a>
-			<a href="/">Contactez nous</a> -->
-
 		</section>
+
+		<!-- ........ bottom contact info footer ........ -->
 
 		<section class="row footer-bottom">
 			<aside v-for="socialmedia in socialmedia" class="">
@@ -38,15 +41,10 @@
 </template>
 
 <script>
-
-// var $phone = "03 32 23 45 54";
-
-import Variables from '@/Variables.js'
-
 export default {
 	data () {
 		return {
-			brand: 'Cabinet Dentaire',
+			brand: this.$branding,
 			text: 'Ouvert du Lundi au Vendredi de 9h à 12h30 et de 14h30 à 18h',
 			nav_links: [
 				{
@@ -86,15 +84,15 @@ export default {
 			],
 			socialmedia: [
 				{
-					name: 'hello@dentist.com',
+					name: this.$email,
 					icon: 'fas fa-envelope'
 				},
 				{
-					name: '$phone',
+					name: this.$phone,
 					icon: 'fas fa-phone'
 				},
 				{
-					name: '3, rue de la rue 59000 Lille',
+					name: this.$address,
 					icon: 'fas fa-map-marker',
 					link: 'hello@dentist.com'
 				}
@@ -120,6 +118,7 @@ footer {
 	.footer-top {
 		@include flex-row(center,center);
 		flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
 		padding: 5em 0;
 
 

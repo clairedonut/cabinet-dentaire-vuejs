@@ -4,13 +4,11 @@
 
 		<section id="emergency" class="row">
 
-			<!-- <figure class="col-12 col-md-4 col-lg-6">
-				<img :src="img_path" class="img-fluid" alt="">
-			</figure> -->
-
 			<article class="col-12 col-md-8 col-lg-6">
 
 				<h2> {{ title }} </h2>
+
+				<!-- ..................... table emergency contact info ..................... -->
 
 				<table>
 					<tbody>
@@ -19,17 +17,15 @@
 								<h4> {{ emergency_number.name }} : {{ emergency_number.phone }} </h4>
 								<p> {{ emergency_number.description }} </p>
 							</td>
-							<!-- <td> {{ emergency_number.phone }} </td> -->
 						</tr>
 					</tbody>
 				</table>
 
+				<!-- ..................... texts ..................... -->
+
 				<div v-for="item in items">
-
 					<h3> {{ item.title }} </h3>
-
 					<p> {{ item.text }} </p>
-
 				</div>
 
 			</article>
@@ -41,12 +37,9 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import Banner from '@/components/Banner.vue'
-
 
 export default {
-  data () {
+	data () {
 		return {
 			title: 'En cas d Urgence!',
 			img_path: '../img/emergency.jpg',
@@ -71,19 +64,41 @@ export default {
 					description: 'du Lundi au Vendredi jusque 18h',
 					phone: '03 21 65 00 01'
 				}
-			],
-			itemsOLD:[
-        'Le Cabinet Dentaire des Docteurs Jean-François SALOME et Aline SUYBENG. Notre cabinet est moderne et est équipé des dernières technologies dentaires.',
-        'Tous nos produits et pièces prothétiques sont de marque premium ; les prothèses sont fabriquées en France.',
-				'Soyez assuré de la forte implication de l\'ensemble des praticiens et assistantes du cabinet dans la prise en charge de nos patients.',
-        'Pour prendre rendez-vous, veuillez nous contacter au 03 8575 6666.'
-      ]
+			]
 		}
 	},
-	components: {
-		// Banner
-	}
+	head: {
+		// To use "this" in the component, it is necessary to return the object through a function
+		title: function () {
+			return {
+				inner: 'Contacter notre Cabinet Dentaire d\'urgence'
+			}
+		},
+		meta: [
+			{ name: 'description', content: 'Cabinet Dentaire à Lille (59000) avec les chirurgiens-dentistes Drs Eline, Bassett et Caelan. Traitements esthétiques, implants', id: 'desc' },
+			{ name: 'image', content: 'https://media.istockphoto.com/photos/woman-at-dentist-picture-id664274496?k=6&m=664274496&s=612x612&w=0&h=Gri8H1qqTguq7nkWamrlwNz2AxvqDHpIQgQy7h-jg74=' },
 
+			// Google+ / Schema.org
+			{ itemprop: 'name', content: 'Chirurgien-dentistes à Lille' },
+			{ itemprop: 'description', content: 'Cabinet Dentaire à Lille (59000) avec les chirurgiens-dentistes Drs Eline, Bassett et Caelan. Traitements esthétiques, implants' },
+			{ itemprop: 'image', content: 'https://media.istockphoto.com/photos/woman-at-dentist-picture-id664274496?k=6&m=664274496&s=612x612&w=0&h=Gri8H1qqTguq7nkWamrlwNz2AxvqDHpIQgQy7h-jg74=' },
+
+			// Twitter
+			{ name: 'twitter:card', content: 'summary' },
+			{ name: 'twitter:title', content: 'Chirurgien-dentistes à Lille depuis 2012' },
+			{ name: 'twitter:card', content: 'Cabinet Dentaire à Lille (59000) avec les chirurgiens-dentistes Drs Eline, Bassett et Caelan. Traitements dentaires, implants, orthodontie' },
+
+			// Open Graph general (Facebook, Pinterest & Google+)
+			{ name: 'og:title', content: 'Chirurgien-dentistes à Lille depuis 2012' },
+			{ name: 'og:description', content: 'Cabinet Dentaire à Lille (59000) avec les chirurgiens-dentistes Drs Eline, Bassett et Caelan. Traitements dentaires, implants, orthodontie' },
+			{ name: 'og:image', content: 'https://media.istockphoto.com/photos/woman-at-dentist-picture-id664274496?k=6&m=664274496&s=612x612&w=0&h=Gri8H1qqTguq7nkWamrlwNz2AxvqDHpIQgQy7h-jg74=' },
+			{ name: 'og:url', content: 'http://cookiesandwifi.ovh/dentist-vuejs' },
+			{ name: 'og:site_name', content: 'Cabinet Dentaire' },
+			{ name: 'og:locale', content: 'fr_FR' },
+			{ name: 'og:type', content: 'website' }
+
+		]
+	}
 }
 </script>
 
@@ -91,7 +106,8 @@ export default {
 
 #emergency {
 
-
+	@include flex-row(flex-end, flex-start);
+	padding: 0;
 
 	@include background('https://images.unsplash.com/photo-1445527815219-ecbfec67492e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80', cover, no-repeat, left );
 
@@ -99,9 +115,6 @@ export default {
 		@include background('https://images.unsplash.com/photo-1445527815219-ecbfec67492e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80', cover, no-repeat, left );
 	}
 
-	// background: blue;
-	@include flex-row(flex-end, flex-start);
-	padding: 0;
 
 
 	article {
@@ -111,7 +124,6 @@ export default {
 
 		table {
 			margin: 2em 0;
-
 			font-weight: 800;
 			color: red;
 
@@ -149,10 +161,7 @@ export default {
 			text-align: justify;
 
 			@media #{$min-break-medium} {
-				// font-size: 1em;
-
 				padding: 2em 5em;
-
 			}
 		}
 
