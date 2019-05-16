@@ -1,4 +1,4 @@
-# Showcase website site for Dental practice
+# Showcase website for a Dental practice
 
 `vue` `vue.js` `vue-cli 3` `node.js` `sass` `contact-form` `SEO`
 
